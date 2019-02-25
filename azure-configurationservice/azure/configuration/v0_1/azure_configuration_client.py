@@ -45,7 +45,7 @@ class AzureConfigurationClient(object):
         """
         return self._client.list_key_values(label, key, accept_date_time, fields, custom_headers, raw, **operation_config)
     
-    def get_key_values(
+    def get_key_value(
             self, key, label="%00", accept_date_time=None, custom_headers=None, raw=False, **operation_config):
         
         """Get a KeyValue.
@@ -71,7 +71,7 @@ class AzureConfigurationClient(object):
         """
         return self._client.get_key_values(key, label, accept_date_time, custom_headers, raw, **operation_config)
 
-    def create_key_values(
+    def create_key_value(
             self, key_value, key, label="%00", custom_headers=None, raw=False, **operation_config):
         """Create a KeyValue.
 
@@ -95,7 +95,7 @@ class AzureConfigurationClient(object):
         """
         return self._client.create_or_update_key_values(key_value, key, label, custom_headers, raw, **operation_config)
     
-    def update_key_values(
+    def update_key_value(
             self, key_value, key, label="%00", custom_headers=None, raw=False, **operation_config):
         """Update a KeyValue.
 
@@ -119,7 +119,7 @@ class AzureConfigurationClient(object):
         """
         return self._client.create_or_update_key_values(key_value, key, label, custom_headers, raw, **operation_config)
     
-    def delete_key_values(
+    def delete_key_value(
             self, key, label=None, custom_headers=None, raw=False, **operation_config):
         """Delete a KeyValue.
 
