@@ -53,7 +53,7 @@ class KeyValue(Model):
         'tags': {'key': 'tags', 'type': '{str}'},
     }
 
-    def __init__(self, key, label=None, content_type=None, value=None, tags=None):
+    def __init__(self, key=None, label=None, content_type=None, value=None, tags=None):
         super(KeyValue, self).__init__()
         self.etag = None
         self.key = key
