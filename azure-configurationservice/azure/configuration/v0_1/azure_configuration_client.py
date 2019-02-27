@@ -1,7 +1,7 @@
 from .azure_configuration_client_imp import AzureConfigurationClientImp
 
 class AzureConfigurationClient(object):
-    """Do stuff with azconfig
+    """Represents an azconfig client
 
     :ivar config: Configuration for client.
     :vartype config: AzureConfigurationClientConfiguration
@@ -16,7 +16,7 @@ class AzureConfigurationClient(object):
         self._client = AzureConfigurationClientImp(connection_string)
     
     def list_key_values(
-            self, label=None, key=None, accept_date_time=None, fields=None, custom_headers=None, raw=False, **operation_config):
+            self, label=None, key=None, accept_date_time=None, fields=None, custom_headers=None):
         """List key values.
 
         List the key values in the configuration store, optionally filtered by
@@ -34,19 +34,15 @@ class AzureConfigurationClient(object):
         :param fields: Specify which fields to return
         :type fields: list[str]
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
         :return: An iterator like instance of KeyValue
         :rtype:
          ~azure.configurationservice.models.KeyValuePaged[~azure.configurationservice.models.KeyValue]
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.list_key_values(label, key, accept_date_time, fields, custom_headers, raw, **operation_config)
+        return self._client.list_key_values(label, key, accept_date_time, fields, custom_headers)
     
     def get_key_value(
-            self, key, label="%00", accept_date_time=None, custom_headers=None, raw=False, **operation_config):
+            self, key, label="%00", accept_date_time=None, custom_headers=None):
         
         """Get a KeyValue.
 
@@ -60,19 +56,14 @@ class AzureConfigurationClient(object):
          to past time.
         :type accept_date_time: datetime
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
-        :return: KeyValue or ClientRawResponse if raw=true
-        :rtype: ~azure.configurationservice.models.KeyValue or
-         ~msrest.pipeline.ClientRawResponse
+        :return: KeyValue
+        :rtype: ~azure.configurationservice.models.KeyValue
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.get_key_values(key, label, accept_date_time, custom_headers, raw, **operation_config)
+        return self._client.get_key_values(key, label, accept_date_time, custom_headers)
 
     def create_key_value(
-            self, key_value, key, label="%00", custom_headers=None, raw=False, **operation_config):
+            self, key_value, key, label="%00", custom_headers=None):
         """Create a KeyValue.
 
         Create a KeyValue.
@@ -84,19 +75,14 @@ class AzureConfigurationClient(object):
         :param label:
         :type label: str
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
-        :return: KeyValue or ClientRawResponse if raw=true
-        :rtype: ~azure.configurationservice.models.KeyValue or
-         ~msrest.pipeline.ClientRawResponse
+        :return: KeyValue
+        :rtype: ~azure.configurationservice.models.KeyValue
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.create_or_update_key_values(key_value, key, label, custom_headers, raw, **operation_config)
+        return self._client.create_or_update_key_values(key_value, key, label, custom_headers)
     
     def update_key_value(
-            self, key_value, key, label="%00", custom_headers=None, raw=False, **operation_config):
+            self, key_value, key, label="%00", custom_headers=None):
         """Update a KeyValue.
 
         Update a KeyValue.
@@ -108,19 +94,14 @@ class AzureConfigurationClient(object):
         :param label:
         :type label: str
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
-        :return: KeyValue or ClientRawResponse if raw=true
-        :rtype: ~azure.configurationservice.models.KeyValue or
-         ~msrest.pipeline.ClientRawResponse
+        :return: KeyValue
+        :rtype: ~azure.configurationservice.models.KeyValue
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.create_or_update_key_values(key_value, key, label, custom_headers, raw, **operation_config)
+        return self._client.create_or_update_key_values(key_value, key, label, custom_headers)
     
     def delete_key_value(
-            self, key, label=None, custom_headers=None, raw=False, **operation_config):
+            self, key, label=None, custom_headers=None):
         """Delete a KeyValue.
 
         :param key: string
@@ -128,19 +109,14 @@ class AzureConfigurationClient(object):
         :param label:
         :type label: str
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
-        :return: KeyValue or ClientRawResponse if raw=true
-        :rtype: ~azure.configurationservice.models.KeyValue or
-         ~msrest.pipeline.ClientRawResponse
+        :return: KeyValue
+        :rtype: ~azure.configurationservice.models.KeyValue
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.delete_key_values(key, label, custom_headers, raw, **operation_config)
+        return self._client.delete_key_values(key, label, custom_headers)
 
     def list_keys(
-            self, name=None, accept_date_time=None, custom_headers=None, raw=False, **operation_config):
+            self, name=None, accept_date_time=None, custom_headers=None):
         """
 
         :param name:
@@ -149,19 +125,15 @@ class AzureConfigurationClient(object):
          to past time.
         :type accept_date_time: datetime
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
         :return: An iterator like instance of Key
         :rtype:
          ~azure.configurationservice.models.KeyPaged[~azure.configurationservice.models.Key]
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.list_keys(name, accept_date_time, custom_headers, raw, **operation_config)
+        return self._client.list_keys(name, accept_date_time, custom_headers)
     
     def list_labels(
-            self, accept_date_time=None, fields=None, name=None, custom_headers=None, raw=False, **operation_config):
+            self, accept_date_time=None, fields=None, name=None, custom_headers=None):
         """List labels.
 
         :param accept_date_time: Obtain representation of the result related
@@ -172,19 +144,15 @@ class AzureConfigurationClient(object):
         :param name:
         :type name: str
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
         :return: An iterator like instance of Label
         :rtype:
          ~azure.configurationservice.models.LabelPaged[~azure.configurationservice.models.Label]
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.list_labels(accept_date_time, fields, name, custom_headers, raw, **operation_config)
+        return self._client.list_labels(accept_date_time, fields, name, custom_headers)
 
-    def lock(
-            self, key, label=None, custom_headers=None, raw=False, **operation_config):
+    def lock_key_value(
+            self, key, label=None, custom_headers=None):
         """
 
         :param key:
@@ -192,19 +160,14 @@ class AzureConfigurationClient(object):
         :param label:
         :type label: str
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
-        :return: KeyValue or ClientRawResponse if raw=true
-        :rtype: ~azure.configurationservice.models.KeyValue or
-         ~msrest.pipeline.ClientRawResponse
+        :return: KeyValue
+        :rtype: ~azure.configurationservice.models.KeyValue
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.create_locks(key, label, custom_headers, raw, **operation_config)
+        return self._client.create_locks(key, label, custom_headers)
     
-    def unlock(
-            self, key, label=None, custom_headers=None, raw=False, **operation_config):
+    def unlock_key_value(
+            self, key, label=None, custom_headers=None):
         """
 
         :param key:
@@ -212,19 +175,14 @@ class AzureConfigurationClient(object):
         :param label:
         :type label: str
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
-        :return: KeyValue or ClientRawResponse if raw=true
-        :rtype: ~azure.configurationservice.models.KeyValue or
-         ~msrest.pipeline.ClientRawResponse
+        :return: KeyValue
+        :rtype: ~azure.configurationservice.models.KeyValue
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.delete_locks(key, label, custom_headers, raw, **operation_config)
+        return self._client.delete_locks(key, label, custom_headers)
     
     def list_revisions(
-            self, label=None, key=None, fields=None, accept_date_time=None, custom_headers=None, raw=False, **operation_config):
+            self, label=None, key=None, fields=None, accept_date_time=None, custom_headers=None):
         """
 
         :param label: Filter returned values based on their label. '*' can be
@@ -239,13 +197,9 @@ class AzureConfigurationClient(object):
          to past time.
         :type accept_date_time: datetime
         :param dict custom_headers: headers that will be added to the request
-        :param bool raw: returns the direct response alongside the
-         deserialized response
-        :param operation_config: :ref:`Operation configuration
-         overrides<msrest:optionsforoperations>`.
         :return: An iterator like instance of KeyValue
         :rtype:
          ~azure.configurationservice.models.KeyValuePaged[~azure.configurationservice.models.KeyValue]
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
-        return self._client.list_revisions(label, key, fields, accept_date_time, custom_headers, raw, **operation_config)
+        return self._client.list_revisions(label, key, fields, accept_date_time, custom_headers)

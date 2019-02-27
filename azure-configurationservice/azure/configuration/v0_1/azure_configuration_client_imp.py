@@ -45,7 +45,7 @@ class AzureConfigurationClientConfiguration(AzureConfiguration):
 
 
 class AzureConfigurationClientImp(object):
-    """Do stuff with azconfig
+    """Implementation of AzConfig client
 
     :ivar config: Configuration for client.
     :vartype config: AzureConfigurationClientConfiguration
